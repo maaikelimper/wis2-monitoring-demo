@@ -1,0 +1,7 @@
+mqtt_topic
+cache/v04/wis2/eue/ecmwf/data/core/weather/global-analysis-prediction/forecast/#
+cache/v04/wis2/swe/norrkoeping_swedish_meteorological_and_hydrological_institute/data/core/observations-surface-land/landFixed/#
+origin/v04/wis2/deu/dwd-offenbach/data/core/weather/surface-based-obs/webcam/
+cache/v04/wis2/deu/offenbach_met_com_centre/data/core/weather/surface-based-obs/#
+cache/#
+origin/#
