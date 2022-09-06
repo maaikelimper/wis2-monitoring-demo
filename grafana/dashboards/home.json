@@ -111,7 +111,7 @@
             "uid": "PBA9F0B3B945212EC"
           },
           "editorMode": "code",
-          "expr": "sum(rate({container_name=\"wis2-monitor-subscriber\"} |=\"INFO\" |= `New MQTT-message` [$__interval]))",
+          "expr": "sum(count_over_time({container_name=\"wis2-monitor-subscriber\"} |=\"INFO\" |= `New MQTT-message` [$__interval]))",
           "legendFormat": "messages received per minute",
           "queryType": "range",
           "refId": "A"
@@ -177,10 +177,34 @@
             "uid": "PBA9F0B3B945212EC"
           },
           "editorMode": "code",
-          "expr": "sum by (dt) (count_over_time( {container_name=\"wis2-monitor-subscriber\"} |= \"INFO:mqtt-subscriber:subscription=\" | pattern \"<_>subscription=<sub>, data_type=<dt>\" [10m]))",
+          "expr": "sum by (dt) (count_over_time( {container_name=\"wis2-monitor-subscriber\"} |= \"application\"|= \"INFO:mqtt-subscriber:subscription=\" | pattern \"<_>subscription=<sub>, data_type=<dt>\" [10m]))",
           "legendFormat": "{{dt}}",
           "queryType": "range",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "PBA9F0B3B945212EC"
+          },
+          "editorMode": "code",
+          "expr": "sum by (dt) (count_over_time( {container_name=\"wis2-monitor-subscriber\"} |= \"image\"|= \"INFO:mqtt-subscriber:subscription=\" | pattern \"<_>subscription=<sub>, data_type=<dt>\" [10m]))",
+          "hide": false,
+          "legendFormat": "{{dt}}",
+          "queryType": "range",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "PBA9F0B3B945212EC"
+          },
+          "editorMode": "code",
+          "expr": "sum by (dt) (count_over_time( {container_name=\"wis2-monitor-subscriber\"} |= \"text\" |= \"INFO:mqtt-subscriber:subscription=\" | pattern \"<_>subscription=<sub>, data_type=<dt>\" [10m]))",
+          "hide": false,
+          "legendFormat": "{{dt}}",
+          "queryType": "range",
+          "refId": "C"
         }
       ],
       "title": "Messages received by data-type",
