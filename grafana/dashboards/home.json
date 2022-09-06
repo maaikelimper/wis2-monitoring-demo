@@ -92,7 +92,8 @@
         "y": 0
       },
       "id": 8,
-      "interval": "5m",
+      "interval": "1m",
+      "maxDataPoints": 20000,
       "options": {
         "legend": {
           "calcs": [],
